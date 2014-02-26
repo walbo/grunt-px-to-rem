@@ -1,0 +1,42 @@
+{
+  "name": "grunt-px-to-rem",
+  "description": "Convert px to rem",
+  "version": "0.1.0",
+  "homepage": "https://github.com/walbo/grunt-px-to-rem",
+  "author": {
+    "name": "Petter Walbø Johnsgård",
+    "email": "petter@walbo.net",
+    "url": "http://walbo.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/walbo/grunt-px-to-rem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/walbo/grunt-px-to-rem/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/walbo/grunt-px-to-rem/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

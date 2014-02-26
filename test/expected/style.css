@@ -1,0 +1,12 @@
+h1 {
+	font-size: 1.875rem;
+	border-bottom: 0.1875rem solid #cccccc;
+	margin-bottom: 0;
+}
+
+@media (max-width: 62.5rem) {
+	h1 {
+		font-size: 1.0125rem;
+		border-bottom: 1rem solid #cccccc;
+	}
+}
