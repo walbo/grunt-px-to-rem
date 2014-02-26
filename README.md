@@ -19,22 +19,6 @@ grunt.loadNpmTasks('grunt-px-to-rem');
 
 ## The "px_to_rem" task
 
-### Overview
-In your project's Gruntfile, add a section named `px_to_rem` to the data object passed into `grunt.initConfig()`.
-
-```js
-grunt.initConfig({
-  px_to_rem: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-});
-```
-
 ### Options
 
 #### options.base
@@ -50,13 +34,15 @@ Base size
 ```js
 grunt.initConfig({
   px_to_rem: {
-    options: {},
+    options: {
+      base: 16
+    },
     files: {
-      'dest/style.css': ['style.css'],
+      'dest/style.css': ['src/style.css'],
     },
   },
 });
 ```
 
 ## Release History
-_(Nothing yet)_
+ * 2012-10-03   v0.1.0   Init
