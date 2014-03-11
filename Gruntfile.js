@@ -39,7 +39,8 @@ module.exports = function(grunt) {
       },
       custom_options: {
         options: {
-          base: 20
+          base: 16,
+          fallback: true
         },
         files: {
           'tmp/style_custom.css': ['test/style.css'],
@@ -65,8 +66,8 @@ module.exports = function(grunt) {
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   grunt.registerTask('test', ['clean', 'px_to_rem', 'nodeunit']);
-
+  grunt.registerTask('walbo', ['clean', 'px_to_rem']);
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['jshint', 'walbo']);
 
 };

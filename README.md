@@ -27,6 +27,12 @@ Default value: `16`
 
 Base size
 
+#### options.fallback
+Type: `bool`
+Default value: `false`
+
+Keep initial px values for fallback to browser who doesn't support rem.
+
 ### Usage Examples
 
 #### Default Options
@@ -35,7 +41,8 @@ Base size
 grunt.initConfig({
   px_to_rem: {
     options: {
-      base: 16
+      base: 16,
+      fallback: false
     },
     files: {
       'dest/style.css': ['src/style.css'],
@@ -49,10 +56,11 @@ grunt.initConfig({
 ```css
 p {
 	font-size: 16px; // Coverts to rem
-	margin-top: !20px; // Returns 20px because of the !
+	border-left: !1px solid #000000; // Returns 1px because of the !
 }
 ```
 
 ## Release History
+ * 2014-12-03   v0.1.5   Added px fallback option
  * 2014-11-03   v0.1.4   Added option to keep px. Use ! to keep px value
  * 2014-27-02   v0.1.0   Init

@@ -21,6 +21,9 @@
       "url": "https://github.com/walbo/grunt-px-to-rem/blob/master/LICENSE-MIT"
     }
   ],
+  "dependencies": {
+    "postcss": "~0.3.0"
+  },
   "engines": {
     "node": ">= 0.8.0"
   },
