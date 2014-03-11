@@ -40,14 +40,16 @@ Keep initial px values for fallback to browser who doesn't support rem.
 ```js
 grunt.initConfig({
   px_to_rem: {
-    options: {
-      base: 16,
-      fallback: false
-    },
-    files: {
-      'dest/style.css': ['src/style.css'],
-    },
-  },
+    dist: {
+      options: {
+        base: 16,
+        fallback: false
+      },
+      files: {
+        'dest/style.css': ['src/style.css'],
+      }
+    }
+  }
 });
 ```
 
