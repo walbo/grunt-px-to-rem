@@ -34,15 +34,21 @@ module.exports = function(grunt) {
         // Read file source.
         return grunt.file.read(filepath)
 
-        // Replace all px to rem
-        .replace(/([+-]?\d*\.?\d+)\s*px/g, function(match, value, unit) {
-          var rem = (parseFloat(value) / options.base) + 'rem';
 
-          if ( rem === '0rem' ) {
-            rem = 0; // Values of 0 shouldn't have units specified
+        .replace(/([!]?[+-]?\d*\.?\d+)\s*px/g, function(match, value, unit) {
+          var newUnit;
+
+          if( value.indexOf("!") !== -1 ) {
+            newUnit = parseFloat( value.replace('!','') ) + 'px';
+          } else {
+            newUnit = (parseFloat(value) / options.base) + 'rem';
           }
 
-          return rem;
+          if ( ['0px', '0rem'].indexOf(newUnit) !== -1 ) {
+            newUnit = 0; // Values of 0 shouldn't have units specified
+          }
+
+          return newUnit;
         });
       });
 

@@ -45,4 +45,5 @@ grunt.initConfig({
 ```
 
 ## Release History
- * 2012-10-03   v0.1.0   Init
+ * 2014-11-03   v0.1.3   Added option to keep px. Use ! to keep px value
+ * 2014-27-02   v0.1.0   Init
