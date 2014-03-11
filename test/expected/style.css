@@ -2,12 +2,7 @@ h1 {
 	font-size: 1.875rem;
 	border-bottom: 1px solid #cccccc;
 	margin-bottom: -0.625rem;
-}
-
-@media (max-width: 1000px) {
-	h1 {
-		font-size: 1rem;
-		border-bottom: 1.0125rem solid #cccccc;
-		top: -30px;
-	}
+	margin-top: 2rem;
+	margin-left: 0;
+	margin-right: 0;
 }
