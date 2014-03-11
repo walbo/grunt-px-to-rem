@@ -44,6 +44,15 @@ grunt.initConfig({
 });
 ```
 
+#### CSS usage
+
+```css
+p {
+	font-size: 16px; // Coverts to rem
+	margin-top: !20px; // Returns 20px because of the !
+}
+```
+
 ## Release History
- * 2014-11-03   v0.1.3   Added option to keep px. Use ! to keep px value
+ * 2014-11-03   v0.1.4   Added option to keep px. Use ! to keep px value
  * 2014-27-02   v0.1.0   Init
