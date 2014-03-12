@@ -1,6 +1,6 @@
 # grunt-px-to-rem
 
-> Convert px to rem
+> Convert px to rem in css files with optional fallback to px.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
