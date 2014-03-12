@@ -61,9 +61,3 @@ p {
 	border-left: !1px solid #000000; // Returns 1px because of the !
 }
 ```
-
-## Release History
- * 2014-12-03   v0.1.7   Changed how values of 0 is stripped for units
- * 2014-12-03   v0.1.5   Added px fallback option
- * 2014-11-03   v0.1.4   Added option to keep px. Use ! to keep px value
- * 2014-27-02   v0.1.0   Init

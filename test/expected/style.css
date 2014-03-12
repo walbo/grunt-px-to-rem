@@ -1,8 +1,16 @@
 h1 {
 	font-size: 1.875rem;
-	border-bottom: 1px solid #cccccc;
-	margin-bottom: -0.625rem;
-	margin-top: 2rem;
-	margin-left: 0;
-	margin-right: 0;
+	border-bottom: 0 solid #cccccc;
+	margin-top: 2rem 0 -0.625rem 0;
+	padding-top: 1.25rem;
+}
+
+h2 {
+	margin: 0 auto;
+	padding: 1.25rem 0;
+}
+
+h4 {
+	margin: 1rem 1.25rem;
+	padding-top: 0;
 }
