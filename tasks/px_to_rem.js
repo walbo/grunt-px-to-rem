@@ -22,45 +22,57 @@ module.exports = function(grunt) {
             var postcss = require('postcss'),
                 processor = postcss(function (css) {
                     css.eachDecl(function (decl, i) {
+                        
+                        // Values of 0 shouldn't have units specified.
+                        decl.value = decl.value.replace(/([!]?\d*\.?\d+)\s*(px|rem)/g, function($1) {
+
+                          if ( $1 === '0px' || $1 === '!0px' || $1 === '0rem') {
+                            $1 = 0;
+                          }
+
+                          return $1;
+                        });
+
+
                         var value = decl.value;
 
-                        // Values of 0 shouldn't have units specified. Return 0
-                        if (value.indexOf('!0px') === 0 || value.indexOf('0rem') === 0 || value.indexOf('0px') === 0) {
-                            decl.value = '0';
-                        }
-                        
+                       
                         // Change !px values to px
-                        else if (value.indexOf('!') !== -1) {
+                        if (value.indexOf('!') !== -1) {
                             value = value.replace('!','');
 
                             decl.value = value;
                         }
 
-                        // If already rem, create fallback if options.fallback else return rem.
-                        else if (value.indexOf('rem') !== -1) {
+                        else {
+                            // If already rem, create fallback if options.fallback else return rem.
+                            if (value.indexOf('rem') !== -1) {
 
-                            if(options.fallback) {
-                                value = value.replace(/(\d*\.?\d+)rem/ig, function ($1, $2) {
-                                    return Math.floor(parseFloat($2) * options.base) + 'px';
+                                if(options.fallback && value !== '0') {
+                                    value = value.replace(/(\d*\.?\d+)rem/ig, function ($1, $2) {
+                                        return Math.floor(parseFloat($2) * options.base) + 'px';
+                                    });
+
+                                    decl.parent.insertBefore(i, decl.clone({ value: value }));
+
+                                    decl.fallback = true;
+                                } else {
+                                    decl.value = value;
+                                }
+                            } 
+
+                            // Convert px to rem
+                            if (value.indexOf('px') !== -1) {
+                                value = value.replace(/(\d*\.?\d+)px/ig, function ($1, $2) {
+                                    return parseFloat($2 / options.base) + 'rem';
                                 });
 
-                                decl.parent.insertBefore(i, decl.clone({ value: value }));
-                            } else {
-                                decl.value = value;
-                            }
-                        } 
-
-                        // Convert px to rem
-                        else {
-                            value = value.replace(/(\d*\.?\d+)px/ig, function ($1, $2) {
-                                return parseFloat($2 / options.base) + 'rem';
-                            });
-
-                            if(options.fallback) {
-                                decl.parent.insertBefore(i, decl.clone());
-                                decl.value = value;
-                            } else {
-                                decl.value = value;
+                                if(options.fallback && value !== '0' && ! decl.fallback) {
+                                    decl.parent.insertBefore(i, decl.clone());
+                                    decl.value = value;
+                                } else {
+                                    decl.value = value;
+                                }
                             }
                         }
                     });
