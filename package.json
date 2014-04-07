@@ -22,7 +22,6 @@
     }
   ],
   "dependencies": {
-    "grunt": "~0.4.2",
     "postcss": "~0.3.0"
   },
   "engines": {
