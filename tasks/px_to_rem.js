@@ -8,7 +8,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     grunt.registerMultiTask('px_to_rem', 'Convert px to rem', function() {
         
@@ -24,8 +24,8 @@ module.exports = function(grunt) {
                     css.eachDecl(function (decl, i) {
 
                         // Values of 0 shouldn't have units specified.
-                        decl.value = decl.value.replace(/([!]?\d*\.?\d+)\s*(px|rem)/g, function($1) {
-                            if ( $1 === '0px' || $1 === '!0px' || $1 === '0rem') {
+                        decl.value = decl.value.replace( /([!]?\d*\.?\d+)\s*(pxi|px|rem)/g, function($1) {
+                            if ( $1 === '0pxi' || $1 === '0px' || $1 === '!0px' || $1 === '0rem' ) {
                                 $1 = 0;
                             }
                             return $1;
@@ -33,22 +33,16 @@ module.exports = function(grunt) {
 
                         var value = decl.value;
                        
-                        // Change !px values to px
-                        if (value.indexOf('!') !== -1) {
-                            value = value.replace('!','');
+                        // Change !px || pxi values to px
+                        if ( value.match( /(!|pxi)/ ) ) {
+                            value = value.replace( '!', '' ).replace( 'pxi', 'px' );
                             decl.value = value;
                         }
-
-                        // Change pxi(px important) values to px
-                        else if (value.indexOf('pxi') !== -1) {
-                            value = value.replace('pxi','px');
-                            decl.value = value;
-                        }
-
+                        
                         else {
                             // If already rem, create fallback if options.fallback
                             if ( options.fallback && value.indexOf( 'rem' ) !== -1 ) {
-                                    value = value.replace(/(\d*\.?\d+)rem/ig, function ($1, $2) {
+                                    value = value.replace( /(\d*\.?\d+)rem/ig, function ($1, $2) {
                                         return Math.floor( parseFloat($2) * options.base ) + 'px';
                                     });
 
@@ -57,13 +51,13 @@ module.exports = function(grunt) {
                             } 
 
                             // Convert px to rem
-                            if ( value.indexOf('px') !== -1 ) {
-                                value = value.replace(/(\d*\.?\d+)px/ig, function ($1, $2) {
-                                    return parseFloat($2 / options.base) + 'rem';
+                            if ( value.indexOf( 'px' ) !== -1 ) {
+                                value = value.replace( /(\d*\.?\d+)px/ig, function ($1, $2) {
+                                    return parseFloat( $2 / options.base ) + 'rem';
                                 });
 
                                 if ( options.fallback && ! decl.fallback ) {
-                                    decl.parent.insertBefore(i, decl.clone());
+                                    decl.parent.insertBefore( i, decl.clone() );
                                     decl.value = value;
                                 } else {
                                     decl.value = value;
@@ -77,29 +71,29 @@ module.exports = function(grunt) {
         };
 
         // Iterate over all specified file groups.
-        this.files.forEach(function(f) {
+        this.files.forEach( function (f) {
             // Concat specified files.
-            var src = f.src.filter(function(filepath) {
+            var src = f.src.filter( function (filepath) {
             
                 // Warn on and remove invalid source files (if nonull was set).
-                if (!grunt.file.exists(filepath)) {
-                    grunt.log.warn('Source file "' + filepath + '" not found.');
+                if ( ! grunt.file.exists(filepath) ) {
+                    grunt.log.warn( 'Source file "' + filepath + '" not found.' );
                     return false;
                 } else {
                     return true;
                 }
 
-            }).map(function(filepath) {
+            }).map( function (filepath) {
                 // Read file source & convert to rem unit
-                var css = pxToRem( grunt.file.read(filepath) );
+                var css = pxToRem( grunt.file.read( filepath ) );
                 return css;
             });
 
             // Write the destination file.
-            grunt.file.write(f.dest, src);
+            grunt.file.write( f.dest, src );
 
             // Print a success message.
-            grunt.log.writeln('Converted px to rem in "' + f.dest + '".');
+            grunt.log.writeln( 'Converted px to rem in "' + f.dest + '".' );
         });
     });
 };
