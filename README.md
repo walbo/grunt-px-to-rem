@@ -33,6 +33,7 @@ Default value: `false`
 
 Keep initial px values for fallback to browser who doesn't support rem.
 
+
 ### Usage Examples
 
 #### Default Options
@@ -56,8 +57,8 @@ grunt.initConfig({
 #### CSS usage
 
 ```css
-p {
+div {
 	font-size: 16px; // Coverts to rem
-	border-left: !1px solid #000000; // Returns 1px because of the !
+	border-left: 1pxi solid #000000; // Returns 1px (pxi = px important)
 }
 ```

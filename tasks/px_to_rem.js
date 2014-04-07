@@ -39,6 +39,12 @@ module.exports = function(grunt) {
                             decl.value = value;
                         }
 
+                        // Change pxi(px important) values to px
+                        else if (value.indexOf('pxi') !== -1) {
+                            value = value.replace('pxi','px');
+                            decl.value = value;
+                        }
+
                         else {
                             // If already rem, create fallback if options.fallback
                             if ( options.fallback && value.indexOf( 'rem' ) !== -1 ) {

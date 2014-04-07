@@ -1,10 +1,10 @@
 {
   "name": "grunt-px-to-rem",
   "description": "Convert px to rem",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "homepage": "https://github.com/walbo/grunt-px-to-rem",
   "author": {
-    "name": "Petter Walbø Johnsgård",
+    "name": "Petter Walbo Johnsgaard",
     "email": "petter@walbo.net",
     "url": "http://walbo.net"
   },

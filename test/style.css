@@ -13,4 +13,6 @@ h2 {
 h4 {
 	margin: 1rem 20px;
 	padding-top: !0px;
+	padding-left: 1pxi;
+	line-height: 1.2em;
 }
