@@ -22,7 +22,8 @@
     }
   ],
   "dependencies": {
-    "postcss": "~0.3.0"
+    "postcss": "~0.3.0",
+    "chalk": "~0.4.0"
   },
   "engines": {
     "node": ">= 0.8.0"

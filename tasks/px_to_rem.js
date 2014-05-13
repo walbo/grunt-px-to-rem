@@ -8,6 +8,8 @@
 
 'use strict';
 
+var chalk = require('chalk');
+
 module.exports = function (grunt) {
 
     grunt.registerMultiTask('px_to_rem', 'Convert px to rem', function() {
@@ -93,7 +95,7 @@ module.exports = function (grunt) {
             grunt.file.write( f.dest, src );
 
             // Print a success message.
-            grunt.log.writeln( 'Converted px to rem in "' + f.dest + '".' );
+            grunt.log.writeln('File ' + chalk.cyan(f.dest) + ' created.');
         });
     });
 };
