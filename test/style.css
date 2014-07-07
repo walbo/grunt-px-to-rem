@@ -1,7 +1,7 @@
 h1 {
 	font-size: 30px;
 	border-bottom: 0rem solid #cccccc;
-	margin-top: 2rem 0rem -10px 0px;
+	margin: 2rem 1px -10px 1rem;
 	padding-top: 20px;
 }
 
@@ -12,7 +12,14 @@ h2 {
 
 h4 {
 	margin: 1rem 20px;
-	padding-top: 0pxi;
+	padding-top: 1rem;
 	padding-left: 1pxi;
 	line-height: 1.2em;
+}
+
+.check-dublication {
+	margin-top: 16px;
+	margin-top: 1rem;
+	padding: 16px 32px 48px 64px;
+	padding: 1rem 2rem 3rem 4rem;
 }
