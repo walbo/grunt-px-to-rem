@@ -33,6 +33,11 @@ Default value: `false`
 
 Keep initial px values for fallback to browser who doesn't support rem.
 
+#### options.max_decimals
+Type: `Int`
+Default value: `20`
+
+Set max decimals on rem values.
 
 ### Usage Examples
 

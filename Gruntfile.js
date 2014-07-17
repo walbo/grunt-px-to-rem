@@ -40,7 +40,8 @@ module.exports = function(grunt) {
       custom_options: {
         options: {
           base: 16,
-          fallback: true
+          fallback: true,
+          max_decimals: 2
         },
         files: {
           'tmp/style_custom.css': ['test/style.css'],

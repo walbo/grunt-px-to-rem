@@ -17,10 +17,12 @@ module.exports = function (grunt) {
         // Options
         var options = this.options({
             base: 16,
-            fallback: false
+            fallback: false,
+            max_decimals: 20
         });    
 
         var pxToRem = function (css) {
+
             var postcss = require('postcss'),
                 processor = postcss(function (css) {
                     css.eachRule( function (rule ,i) {
@@ -66,7 +68,7 @@ module.exports = function (grunt) {
                                 // Convert px to rem
                                 if ( value.indexOf( 'px' ) !== -1 ) {
                                     value = value.replace( /(\d*\.?\d+)px/ig, function ($1, $2) {
-                                        return parseFloat( $2 / options.base ) + 'rem';
+                                        return parseFloat( $2 / options.base ).maxDigits( options.max_decimals ) + 'rem';
                                     });
 
                                     if ( options.fallback && ! decl.fallback ) {
@@ -118,6 +120,13 @@ module.exports = function (grunt) {
 
             return hasFallback;
         }
+
+        // Max digit function
+        Number.prototype.maxDigits = function( max ) {
+			if ( !max || max > 20 ) { return this; }
+			
+			return + ( Math.round( this + "e+" + max )  + "e-" + max );
+		};
 
         // Iterate over all specified file groups.
         this.files.forEach( function ( f ) {
