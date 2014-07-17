@@ -49,7 +49,8 @@ grunt.initConfig({
     dist: {
       options: {
         base: 16,
-        fallback: false
+        fallback: false,
+        max_decimals: 20
       },
       files: {
         'dest/style.css': ['src/style.css'],
