@@ -44,8 +44,8 @@ module.exports = function ( grunt ) {
                             var value = decl.value;
                            
                             // Change !px || pxi values to px
-                            if ( value.match( /(!|pxi)/ ) ) {
-                                value = value.replace( '!', '' ).replace( 'pxi', 'px' );
+                            if ( value.match( /(pxi)/ ) ) {
+                                value = value.replace( 'pxi', 'px' );
                                 decl.value = value;
                             }
                             
