@@ -123,7 +123,13 @@ module.exports = function ( grunt ) {
         Number.prototype.maxDecimals = function( max ) {
             if ( !max || max > 20 ) { return this; }
 
-            return + ( Math.round( this + "e+" + max )  + "e-" + max );
+            var r_value = ( Math.round( this + "e+" + max )  + "e-" + max );
+
+            if ( isNaN( r_value ) ) {
+                return this;
+            }
+
+            return + r_value;
         };
 
         // Iterate over all specified file groups.
