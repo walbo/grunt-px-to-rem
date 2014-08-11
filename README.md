@@ -52,7 +52,7 @@ grunt.initConfig({
         fallback: false
       },
       files: {
-        'dest/style.css': ['src/style.css'],
+        'dest/style.css': ['src/style.css']
       }
     }
   }
@@ -63,7 +63,7 @@ grunt.initConfig({
 
 ```css
 div {
-	font-size: 16px; // Coverts to rem
-	border-left: 1pxi solid #000000; // Returns 1px (pxi = px important)
+  font-size: 16px; // Converts to rem
+  border-left: 1pxi solid #000000; // Returns 1px (pxi = px important)
 }
 ```
