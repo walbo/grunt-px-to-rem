@@ -33,6 +33,12 @@ Default value: `false`
 
 Keep initial px values for fallback to browser who doesn't support rem.
 
+#### options.fallback_existing_rem
+Type: `bool`
+Default value: `false`
+
+Create px fallback for existing rem units. (options.fallback needs to be true)
+
 #### options.max_decimals
 Type: `Int`
 Default value: `20`
