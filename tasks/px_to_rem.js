@@ -18,6 +18,7 @@ module.exports = function ( grunt ) {
         var options = this.options({
             base: 16,
             fallback: false,
+            fallback_existing_rem: false,
             max_decimals: 20
         });    
 
@@ -55,8 +56,8 @@ module.exports = function ( grunt ) {
                                     return decl.value;
                                 }
 
-                                // If already rem, create fallback if options.fallback
-                                if ( options.fallback && value.indexOf( 'rem' ) !== -1 ) {
+                                // If already rem, create fallback if options.fallback && options.fallback_existing_rem
+                                if ( options.fallback && options.fallback_existing_rem && value.indexOf( 'rem' ) !== -1 ) {
                                     value = value.replace( /(\d*\.?\d+)rem/ig, function ( $1, $2 ) {
                                         return Math.floor( parseFloat($2) * options.base ) + 'px';
                                     });
@@ -64,6 +65,16 @@ module.exports = function ( grunt ) {
                                     decl.parent.insertBefore( i, decl.clone({ value: value }) );
                                     decl.fallback = true;
                                 } 
+                                // If for some reason a user places both rem and px in same value.
+                                // Do fallback even if options.fallback_existing_rem is false, but options.fallback is true.
+                                else if ( options.fallback && value.indexOf( 'rem' ) !== -1 && value.indexOf( 'px' ) !== -1 ) {
+                                    value = value.replace( /(\d*\.?\d+)rem/ig, function ( $1, $2 ) {
+                                        return Math.floor( parseFloat($2) * options.base ) + 'px';
+                                    });
+
+                                    decl.parent.insertBefore( i, decl.clone({ value: value }) );
+                                    decl.fallback = true;
+                                }
 
                                 // Convert px to rem
                                 if ( value.indexOf( 'px' ) !== -1 ) {
