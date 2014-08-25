@@ -32,6 +32,7 @@ module.exports = function(grunt) {
     px_to_rem: {
       default_options: {
         options: {
+          ignore: ['border','border-left','border-right','border-top','border-bottom']
         },
         files: {
           'tmp/style.css': ['test/style.css'],
@@ -41,7 +42,8 @@ module.exports = function(grunt) {
         options: {
           base: 16,
           fallback: true,
-          max_decimals: 2
+          max_decimals: 2,
+          ignore: ['border','border-left','border-right','border-top','border-bottom']
         },
         files: {
           'tmp/style_custom.css': ['test/style.css'],

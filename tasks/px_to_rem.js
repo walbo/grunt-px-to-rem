@@ -19,7 +19,8 @@ module.exports = function ( grunt ) {
             base: 16,
             fallback: false,
             fallback_existing_rem: false,
-            max_decimals: 20
+            max_decimals: 20,
+            ignore: []
         });    
 
         var pxToRem = function ( css ) {
@@ -32,19 +33,23 @@ module.exports = function ( grunt ) {
                         var hasFallback = checkFallback( rule.decls );
 
                         rule.eachDecl( function ( decl, i ) {
-                        
 
                             // Values of 0 shouldn't have units specified.
                             decl.value = decl.value.replace( /([!]?\d*\.?\d+)\s*(pxi|px|rem)/g, function ( $1 ) {
-                                if ( $1 === '0pxi' || $1 === '0px' || $1 === '!0px' || $1 === '0rem' ) {
+                                if ( $1 === '0pxi' || $1 === '0px' || $1 === '0rem' ) {
                                     $1 = 0;
                                 }
                                 return $1;
                             });
 
+                            // If prop is black listed return.
+                            if ( options.ignore.indexOf( decl.prop ) !== -1 ) {
+                                return;
+                            }
+
                             var value = decl.value;
                            
-                            // Change !px || pxi values to px
+                            // Change pxi values to px
                             if ( value.match( /(pxi)/ ) ) {
                                 value = value.replace( 'pxi', 'px' );
                                 decl.value = value;

@@ -39,6 +39,12 @@ Default value: `false`
 
 Create px fallback for existing rem units. (options.fallback needs to be true)
 
+#### options.ignore
+Type: `array`
+Default value: `[]`
+
+Array of properties that px-to-rem should ignore. Ex: ['border-left','border-top']
+
 #### options.max_decimals
 Type: `Int`
 Default value: `20`
@@ -55,7 +61,9 @@ grunt.initConfig({
     dist: {
       options: {
         base: 16,
-        fallback: false
+        fallback: false,
+        fallback_existing_rem: false,
+        ignore: []
       },
       files: {
         'dest/style.css': ['src/style.css']
@@ -73,3 +81,7 @@ div {
   border-left: 1pxi solid #000000; // Returns 1px (pxi = px important)
 }
 ```
+
+#### Release history
+v0.2.10 : Added option to ignore properties
+v0.2.8 : Added option to ignore existing rem units.
