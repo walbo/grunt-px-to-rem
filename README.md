@@ -81,7 +81,3 @@ div {
   border-left: 1pxi solid #000000; // Returns 1px (pxi = px important)
 }
 ```
-
-#### Release history
-v0.2.10 : Added option to ignore properties
-v0.2.8 : Added option to ignore existing rem units.
