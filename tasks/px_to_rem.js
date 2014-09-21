@@ -113,6 +113,10 @@ module.exports = function ( grunt ) {
                 if ( obj.hasOwnProperty( prop ) ) {
                     var pro = obj[prop].prop;
 
+                    if ( obj[prop].type === 'comment' ) {
+                        continue;
+                    }
+
                     if ( props.indexOf( pro ) === -1 ) {
 
                         props.push( pro );
