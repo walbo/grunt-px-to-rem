@@ -30,7 +30,7 @@ module.exports = function ( grunt ) {
                     css.eachRule( function ( rule, i ) {
 
                         // Find elements that has fallback allready
-                        var hasFallback = checkFallback( rule.decls );
+                        var hasFallback = checkFallback( rule.nodes );
 
                         rule.eachDecl( function ( decl, i ) {
 
