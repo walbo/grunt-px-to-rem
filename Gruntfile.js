@@ -51,6 +51,23 @@ module.exports = function(grunt) {
       },
     },
 
+    // Sass
+    sass: {
+      main: {
+        options: {
+          'sourcemap': 'none'
+        },
+        files: {
+          'test/style.css': 'test/sass/main.scss'
+        }
+      },
+      sourcemap: {
+        files: {
+          'test/style_sourcemap.css': 'test/sass/main.scss'
+        }
+      }
+    },
+
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js'],
@@ -65,11 +82,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   grunt.registerTask('test', ['clean', 'px_to_rem', 'nodeunit']);
-  grunt.registerTask('walbo', ['clean', 'px_to_rem']);
+  grunt.registerTask('walbo', ['clean', 'sass', 'px_to_rem']);
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'walbo']);
 

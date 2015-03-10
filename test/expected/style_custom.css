@@ -1,35 +1,31 @@
 /* Comment */
 /* Comment nr 2 */
 h1 {
-    /* Comment */
-    /* Comment nr 2 */
-	font-size: 30px;
-	font-size: 1.88rem;
-	border-bottom: 0 solid #cccccc;
-	margin: 32px 1px -11px 16px;
-	margin: 2rem 0.06rem -0.69rem 1rem;
-	padding-top: 20px;
-	padding-top: 1.25rem;
-}
+  /* Comment */
+  /* Comment nr 2 */
+  font-size: 30px;
+  font-size: 1.88rem;
+  border-bottom: 0 solid #cccccc;
+  margin: 32px 1px -11px 16px;
+  margin: 2rem 0.06rem -0.69rem 1rem;
+  padding-top: 20px;
+  padding-top: 1.25rem; }
 
 h2 {
-	margin: 0 auto;
-	padding: 20px 0;
-	padding: 1.25rem 0;
-}
+  margin: 0 auto;
+  padding: 20px 0;
+  padding: 1.25rem 0; }
 
 h4 {
-	margin: 16px 20px;
-	margin: 1rem 1.25rem;
-	padding-top: 1rem;
-	padding-left: 1px;
-	line-height: 1.2em;
-}
+  margin: 16px 20px;
+  margin: 1rem 1.25rem;
+  padding-top: 1rem;
+  padding-left: 1px;
+  line-height: 1.2em; }
 
 .check-dublication {
-	margin-top: 16px;
-	margin-top: 1rem;
-	padding: 16px 32px 48px 64px;
-	padding: 1rem 2rem 3rem 4rem;
-	border-top: 1px solid #f0a;
-}
+  border-top: 1px solid #f0a;
+  margin-top: 16px;
+  margin-top: 1rem;
+  padding: 16px 32px 48px 64px;
+  padding: 1rem 2rem 3rem 4rem; }

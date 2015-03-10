@@ -1,30 +1,26 @@
 /* Comment */
 /* Comment nr 2 */
 h1 {
-    /* Comment */
-    /* Comment nr 2 */
-	font-size: 30px;
-	border-bottom: 0rem solid #cccccc;
-	margin: 2rem 1px -11px 1rem;
-	padding-top: 20px;
-}
+  /* Comment */
+  /* Comment nr 2 */
+  font-size: 30px;
+  border-bottom: 0rem solid #cccccc;
+  margin: 2rem 1px -11px 1rem;
+  padding-top: 20px; }
 
 h2 {
-	margin: 0px auto;
-	padding: 20px 0px;
-}
+  margin: 0px auto;
+  padding: 20px 0px; }
 
 h4 {
-	margin: 1rem 20px;
-	padding-top: 1rem;
-	padding-left: 1pxi;
-	line-height: 1.2em;
-}
+  margin: 1rem 20px;
+  padding-top: 1rem;
+  padding-left: 1pxi;
+  line-height: 1.2em; }
 
 .check-dublication {
-	margin-top: 16px;
-	margin-top: 1rem;
-	padding: 16px 32px 48px 64px;
-	padding: 1rem 2rem 3rem 4rem;
-	border-top: 1px solid #f0a;
-}
+  border-top: 1px solid #f0a;
+  margin-top: 16px;
+  margin-top: 1rem;
+  padding: 16px 32px 48px 64px;
+  padding: 1rem 2rem 3rem 4rem; }

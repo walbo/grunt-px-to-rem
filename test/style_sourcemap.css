@@ -3,19 +3,19 @@
 h1 {
   /* Comment */
   /* Comment nr 2 */
-  font-size: 1.875rem;
-  border-bottom: 0 solid #cccccc;
-  margin: 2rem 0.0625rem -0.6875rem 1rem;
-  padding-top: 1.25rem; }
+  font-size: 30px;
+  border-bottom: 0rem solid #cccccc;
+  margin: 2rem 1px -11px 1rem;
+  padding-top: 20px; }
 
 h2 {
-  margin: 0 auto;
-  padding: 1.25rem 0; }
+  margin: 0px auto;
+  padding: 20px 0px; }
 
 h4 {
-  margin: 1rem 1.25rem;
+  margin: 1rem 20px;
   padding-top: 1rem;
-  padding-left: 1px;
+  padding-left: 1pxi;
   line-height: 1.2em; }
 
 .check-dublication {
@@ -24,3 +24,5 @@ h4 {
   margin-top: 1rem;
   padding: 16px 32px 48px 64px;
   padding: 1rem 2rem 3rem 4rem; }
+
+/*# sourceMappingURL=style_sourcemap.css.map */
