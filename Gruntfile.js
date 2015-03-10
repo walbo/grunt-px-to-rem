@@ -49,6 +49,33 @@ module.exports = function(grunt) {
           'tmp/style_custom.css': ['test/style.css'],
         },
       },
+      custom_options_base: {
+        options: {
+          base: 10
+        },
+        files: {
+          'tmp/style_custom_base.css': ['test/style.css'],
+        },
+      },
+      with_sourcemap: {
+        options: {
+          ignore: ['border','border-left','border-right','border-top','border-bottom']
+        },
+        files: {
+          'tmp/style_sourcemap.css': ['test/style_sourcemap.css'],
+        },
+      },
+      with_sourcemap_custom_options: {
+        options: {
+          base: 16,
+          fallback: true,
+          max_decimals: 2,
+          ignore: ['border','border-left','border-right','border-top','border-bottom']
+        },
+        files: {
+          'tmp/style_sourcemap_custom.css': ['test/style_sourcemap.css'],
+        },
+      },
     },
 
     // Sass

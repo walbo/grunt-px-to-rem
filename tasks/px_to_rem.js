@@ -100,7 +100,7 @@ module.exports = function ( grunt ) {
                     
                 });
 
-            return processor.process( css ).css;
+            return processor.process( css, { map: { annotation: false } } ).css;
         };
 
         // Function to check if rem and px exist
