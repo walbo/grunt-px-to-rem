@@ -1,0 +1,28 @@
+/* Comment */
+/* Comment nr 2 */
+h1 {
+  /* Comment */
+  /* Comment nr 2 */
+  font-size: 1.875rem;
+  border-bottom: 0 solid #cccccc;
+  margin: 2rem 0.0625rem -0.6875rem 1rem;
+  padding-top: 1.25rem; }
+
+h2 {
+  margin: 0 auto;
+  padding: 1.25rem 0; }
+
+h4 {
+  margin: 1rem 1.25rem;
+  padding-top: 1rem;
+  padding-left: 1px;
+  line-height: 1.2em; }
+
+.check-dublication {
+  border-top: 1px solid #f0a;
+  margin-top: 16px;
+  margin-top: 1rem;
+  padding: 16px 32px 48px 64px;
+  padding: 1rem 2rem 3rem 4rem; }
+
+/*# sourceMappingURL=style_sourcemap.css.map */

@@ -32,7 +32,7 @@ exports.px_to_rem = {
 
     var actual = grunt.file.read('tmp/style.css');
     var expected = grunt.file.read('test/expected/style.css');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'should be equal.');
 
     test.done();
   },
@@ -41,7 +41,36 @@ exports.px_to_rem = {
 
     var actual = grunt.file.read('tmp/style_custom.css');
     var expected = grunt.file.read('test/expected/style_custom.css');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'should be equal.');
+
+    test.done();
+  },
+  custom_options_base: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/style_custom_base.css');
+    var expected = grunt.file.read('test/expected/style_custom_base.css');
+    test.equal(actual, expected, 'should be equal.');
+
+    test.done();
+  },
+
+  sourcemap: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/style_sourcemap.css');
+    var expected = grunt.file.read('test/expected/style_sourcemap.css');
+    test.equal(actual, expected, 'should be equal.');
+
+    test.done();
+  },
+
+  sourcemap_custom_options: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/style_sourcemap_custom.css');
+    var expected = grunt.file.read('test/expected/style_sourcemap_custom.css');
+    test.equal(actual, expected, 'should be equal.');
 
     test.done();
   },
