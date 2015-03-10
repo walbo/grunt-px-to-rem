@@ -9,6 +9,7 @@
 'use strict';
 
 var chalk = require( 'chalk' );
+var path = require( 'path' );
 
 module.exports = function ( grunt ) {
 
@@ -20,10 +21,11 @@ module.exports = function ( grunt ) {
             fallback: false,
             fallback_existing_rem: false,
             max_decimals: 20,
-            ignore: []
+            ignore: [],
+            map: false
         });    
 
-        var pxToRem = function ( css ) {
+        var pxToRem = function ( css, from, to ) {
 
             var postcss = require( 'postcss' ),
                 processor = postcss( function ( css ) {
@@ -100,8 +102,27 @@ module.exports = function ( grunt ) {
                     
                 });
 
-            return processor.process( css, { map: { annotation: false } } ).css;
+            return processor.process( css, {
+                map: (typeof options.map === 'boolean') ? options.map : {
+                    prev: getPrevMap(from),
+                    inline: (typeof options.map.inline === 'boolean') ? options.map.inline : true,
+                    annotation: (typeof options.map.annotation === 'boolean') ? options.map.annotation : true,
+                    sourcesContent: (typeof options.map.sourcesContent === 'boolean') ? options.map.sourcesContent : true
+                },
+                from: from,
+                to: to
+            } );
         };
+
+        function getPrevMap(from) {
+            if (typeof options.map.prev === 'string') {
+                var mapPath = options.map.prev + path.basename(from) + '.map';
+
+                if (grunt.file.exists(mapPath)) {
+                    return grunt.file.read(mapPath);
+                }
+            }
+        }
 
         // Function to check if rem and px exist
         function checkFallback ( obj ) {
@@ -156,7 +177,6 @@ module.exports = function ( grunt ) {
         this.files.forEach( function ( f ) {
             // Concat specified files.
             var src = f.src.filter( function ( filepath ) {
-            
                 // Warn on and remove invalid source files (if nonull was set).
                 if ( ! grunt.file.exists( filepath ) ) {
                     grunt.log.warn( 'Source file "' + filepath + '" not found.' );
@@ -166,16 +186,18 @@ module.exports = function ( grunt ) {
                 }
 
             }).map( function ( filepath ) {
-                // Read file source & convert to rem unit
-                var css = pxToRem( grunt.file.read( filepath ) );
-                return css;
+                var dest = f.dest || filepath;
+                var input = grunt.file.read( filepath );
+                var output = pxToRem( input, filepath, dest );
+
+                grunt.file.write( dest, output.css );
+                grunt.log.writeln( 'File ' + chalk.cyan( dest ) + ' created.' );
+
+                if ( output.map ) {
+                    grunt.file.write( dest + '.map', output.map.toString() );
+                    grunt.log.writeln( 'File ' + chalk.cyan( dest + '.map' ) + ' created (source map).' );
+                }
             });
-
-            // Write the destination file.
-            grunt.file.write( f.dest, src );
-
-            // Print a success message.
-            grunt.log.writeln( 'File ' + chalk.cyan(f.dest) + ' created.' );
         });
     });
 };

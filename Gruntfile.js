@@ -59,6 +59,7 @@ module.exports = function(grunt) {
       },
       with_sourcemap: {
         options: {
+          map: true,
           ignore: ['border','border-left','border-right','border-top','border-bottom']
         },
         files: {
@@ -70,6 +71,7 @@ module.exports = function(grunt) {
           base: 16,
           fallback: true,
           max_decimals: 2,
+          map: true,
           ignore: ['border','border-left','border-right','border-top','border-bottom']
         },
         files: {
