@@ -46,7 +46,7 @@ Default value: `[]`
 Array of properties that px-to-rem should ignore. Ex: ['border-left','border-top']
 
 #### options.map
-Type: 'Boolean|Object`
+Type: `Boolean|Object`
 Default value: `false`
 
 If the `map` option isn't defined or is set to `false`, px_to_rem will neither create nor update a sourcemap.
