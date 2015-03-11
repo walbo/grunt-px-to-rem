@@ -78,7 +78,8 @@ grunt.initConfig({
         base: 16,
         fallback: false,
         fallback_existing_rem: false,
-        ignore: []
+        ignore: [],
+        map: false
       },
       files: {
         'dest/style.css': ['src/style.css']
