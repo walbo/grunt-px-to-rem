@@ -126,7 +126,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'px_to_rem', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'px_to_rem', 'nodeunit']);
   grunt.registerTask('walbo', ['clean', 'sass', 'px_to_rem']);
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'walbo']);
