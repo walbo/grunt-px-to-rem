@@ -23,6 +23,16 @@ module.exports = function(grunt) {
       },
     },
 
+    // Jscs default style is grunt
+    jscs: {
+      all: [
+        'tasks/*.js'
+      ],
+      options: {
+        'preset': 'grunt'
+      }
+    },
+
     // Before generating any new files, remove any previously-created files.
     clean: {
       tests: ['tmp'],
@@ -109,6 +119,7 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-sass');
