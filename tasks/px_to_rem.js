@@ -30,6 +30,12 @@ module.exports = function(grunt) {
       var postcss = require('postcss');
       var processor = postcss(function(css) {
         css.eachRule(function(rule, i) {
+          /*
+            ignore css rule when it has 'ignore rem2px' comment in first node
+           */
+          if(rule.nodes[0].type === 'comment' && rule.nodes[0].text === 'ignore rem2px'){
+            return;
+          }
           /**
            * Find elements that has fallback allready
            */
